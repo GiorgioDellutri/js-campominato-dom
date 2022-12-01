@@ -1,6 +1,6 @@
 //! RECUPERO I TASTO PLAY DALLE LORO CLASSI
-let play = document.querySelector('div.play');
-let reset = document.querySelector('div.reset');
+let play = document.querySelector('a.play');
+let reset = document.querySelector('a.reset');
 
 
 let gameOver = false;
