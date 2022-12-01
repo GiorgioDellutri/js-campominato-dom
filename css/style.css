@@ -20,6 +20,11 @@ div.grid-container div.square{
     width: calc(100% / 10);
     height: calc(100% / 10);
     border: 2px solid white;
+    cursor: crosshair;
+}
+
+div.square.red{
+    background-color: red;
 }
 
 div.grid-container div.square.clicked{
