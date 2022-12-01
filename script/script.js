@@ -37,12 +37,15 @@ function squareCreation (content){
 
 let bombs = [];
 
-for (let i = 0; i < 16; i++){
+for (let i = 0; i <= 16; i++){
     // GENERO UN NUMERO RANDOMICO TRA 1 E 100
     const randomBombIndex = randomNumber(1, 100);
-    console.log(randomBombIndex);
-
-    if randomBombIndex
+    // console.log(randomBombIndex);
+    // CONTROLLO SE IL NUMERO E' GIA' PRESENTE ALL'INTERNO DELL'ARRAY . SE NON E' PRESENTE LO AGGIUNGO
+    if (! bombs.includes(randomBombIndex)){
+        bombs.push(randomBombIndex)
+    }
+    console.log(bombs);
 }
 
 function randomNumber (numMin , numMax){
