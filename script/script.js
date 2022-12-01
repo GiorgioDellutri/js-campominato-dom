@@ -1,5 +1,9 @@
 //! RECUPERO IL TASTO PLAY DALLA SUA CLASSE
 let play = document.querySelector('div.play');
+let gameOver = false;
+//* COLLEGO IL TAG P DEL PUNTEGGIO
+const score = document.getElementById('score');
+let scorePoint = 0;
 
     //* RECUPERO IL PARENT
     const wrapperContainer = document.querySelector('div.grid-container');
@@ -23,7 +27,7 @@ play.addEventListener('click', function(){
 //! BOMBS ###########################
 let bombs = [];
 
-for (let i = 0; i <= 16; i++){
+for (let i = 0; i <= 17; i++){
     //* GENERO UN NUMERO RANDOMICO TRA 1 E 100
     let randomBombIndex = randomNumber(1, 100);
 
@@ -32,8 +36,8 @@ for (let i = 0; i <= 16; i++){
     if (! bombs.includes(randomBombIndex)){
         bombs.push(randomBombIndex)
     }
-    console.log(bombs);
 }
+console.log(bombs);
 
 
 //! FUNZIONE PER CREARE IL QUADRATO
@@ -52,7 +56,7 @@ function squareCreation (content){
     newSquare.addEventListener("click", function(){
         
         //* AGGIUNGO LA CLASSE PER COLORARLO DI AZZURRO
-        newSquare.classList.toggle('clicked');
+        newSquare.classList.add('clicked');
         console.log(content);
         
         //! VERIFICA ESPLOSIONE
@@ -60,8 +64,13 @@ function squareCreation (content){
             newSquare.classList.replace('clicked', 'red');
             window.alert('GAME OVER!');
         }
-
-
+        if (newSquare.classList.contains('clicked')){
+            scorePoint += 1;
+            score.innerHTML =`Punteggio : ${scorePoint}`;
+            if (scorePoint === 84){
+                window.alert('HAI VINTO!1!1!1')
+            }
+        }
     });
     return newSquare;
 } 
