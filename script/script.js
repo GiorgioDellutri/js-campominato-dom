@@ -1,9 +1,18 @@
-//! RECUPERO IL TASTO PLAY DALLA SUA CLASSE
+//! RECUPERO I TASTO PLAY DALLE LORO CLASSI
 let play = document.querySelector('div.play');
+let reset = document.querySelector('div.reset');
+
+
 let gameOver = false;
 //* COLLEGO IL TAG P DEL PUNTEGGIO
 const score = document.getElementById('score');
 let scorePoint = 0;
+
+//! AGGIUNGO AL BOTTONE PLAY RESET
+reset.addEventListener('click', function(){
+    wrapperContainer.innerHTML= "";
+    score.innerHTML = "";
+});
 
     //* RECUPERO IL PARENT
     const wrapperContainer = document.querySelector('div.grid-container');
@@ -21,7 +30,7 @@ play.addEventListener('click', function(){
         //* AGGIUNGO IL DIV AL PARENT
         wrapperContainer.appendChild(newSquare);
     }
-}, {once : true});
+}, );
 
 
 //! BOMBS ###########################
@@ -62,7 +71,7 @@ function squareCreation (content){
         //! VERIFICA ESPLOSIONE
         if (bombs.includes(content)){
             newSquare.classList.replace('clicked', 'red');
-            window.alert('GAME OVER!');
+            window.alert(`GAME OVER! \n \n Your score : ${scorePoint} `);
         }
         if (newSquare.classList.contains('clicked')){
             scorePoint += 1;
