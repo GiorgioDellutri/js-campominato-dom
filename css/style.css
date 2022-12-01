@@ -1,0 +1,27 @@
+body{
+    color: black;
+}
+
+main{
+    background-color: rgb(67, 22, 110);    
+    color: white; 
+}
+
+header{
+    background-color: white;
+}
+
+div.grid-container{
+    width: 650px;
+    height: 700px;
+}
+
+div.grid-container div.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 2px solid white;
+}
+
+div.grid-container div.square.clicked{
+    background-color: rgb(18, 150, 150);
+}
