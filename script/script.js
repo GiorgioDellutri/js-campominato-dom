@@ -35,11 +35,27 @@ function squareCreation (content){
     return newSquare;
 } 
 
+let bombs = [];
+
+for (let i = 0; i < 16; i++){
+    // GENERO UN NUMERO RANDOMICO TRA 1 E 100
+    const randomBombIndex = randomNumber(1, 100);
+    console.log(randomBombIndex);
+
+    if randomBombIndex
+}
+
+function randomNumber (numMin , numMax){
+    if (numMin === numMax){
+        return numMax;
+    }
+    return Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
+}
+
+
 function squareIndex (index){
     for(let i = 1; i <= 100; i++){
         console.log(index[i]);
     }
     return index;
 }
-
-
