@@ -17,6 +17,20 @@ play.addEventListener('click', function(){
     }
 }, {once : true});
 
+// BOMBE###########################
+let bombs = [];
+
+for (let i = 0; i <= 16; i++){
+    // GENERO UN NUMERO RANDOMICO TRA 1 E 100
+    const randomBombIndex = randomNumber(1, 100);
+    // console.log(randomBombIndex);
+    // CONTROLLO SE IL NUMERO E' GIA' PRESENTE ALL'INTERNO DELL'ARRAY . SE NON E' PRESENTE LO AGGIUNGO
+    if (! bombs.includes(randomBombIndex)){
+        bombs.push(randomBombIndex)
+    }
+    console.log(bombs);
+}
+
 // FUNZIONE PER CREARE IL QUADRATO
 function squareCreation (content){
     // CREO IL DIV
@@ -34,20 +48,7 @@ function squareCreation (content){
 
     return newSquare;
 } 
-
-let bombs = [];
-
-for (let i = 0; i <= 16; i++){
-    // GENERO UN NUMERO RANDOMICO TRA 1 E 100
-    const randomBombIndex = randomNumber(1, 100);
-    // console.log(randomBombIndex);
-    // CONTROLLO SE IL NUMERO E' GIA' PRESENTE ALL'INTERNO DELL'ARRAY . SE NON E' PRESENTE LO AGGIUNGO
-    if (! bombs.includes(randomBombIndex)){
-        bombs.push(randomBombIndex)
-    }
-    console.log(bombs);
-}
-
+// FUNZIONE PER GENERARE NUMERI RANDOMICI
 function randomNumber (numMin , numMax){
     if (numMin === numMax){
         return numMax;
@@ -55,10 +56,3 @@ function randomNumber (numMin , numMax){
     return Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
 }
 
-
-function squareIndex (index){
-    for(let i = 1; i <= 100; i++){
-        console.log(index[i]);
-    }
-    return index;
-}
