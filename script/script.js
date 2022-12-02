@@ -1,9 +1,8 @@
 //! RECUPERO I TASTO PLAY DALLE LORO CLASSI
 let play = document.querySelector('a.play');
 let reset = document.querySelector('a.reset');
-let perso = false;
-
 let gameOver = false;
+
 //* COLLEGO IL TAG P DEL PUNTEGGIO
 const score = document.getElementById('score');
 let scorePoint = 0;
@@ -68,18 +67,23 @@ function squareCreation (content){
         newSquare.classList.add('clicked');
         console.log(content);
         
-        //! VERIFICA ESPLOSIONE
-        if (bombs.includes(content)){
-            newSquare.classList.replace('clicked', 'red');
-            window.alert(`GAME OVER! \n \n Your score : ${scorePoint} `);
-        }
-        if (newSquare.classList.contains('clicked', 'red')){
-            scorePoint += 1;
-            score.innerHTML =`Punteggio : ${scorePoint}`;
-            if (scorePoint === 84){
-                window.alert('HAI VINTO!1!1!1')
+        if (!gameOver){
+            if (bombs.includes(content)){
+                newSquare.classList.replace('clicked', 'red');
+                window.alert(`GAME OVER! \n \n Your score : ${scorePoint} `);
+                gameOver = true;
+            } else{
+                if (newSquare.classList.contains('clicked')){
+                    scorePoint += 1;
+                    score.innerHTML =`Punteggio : ${scorePoint}`;
+                    if (scorePoint === 84){
+                        window.alert('HAI VINTO!1!1!1')
+                    }
+                }
             }
         }
+
+        //! VERIFICA ESPLOSIONE
     } ,{once:true});
     return newSquare;
 } 
