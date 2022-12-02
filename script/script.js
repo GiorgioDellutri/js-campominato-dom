@@ -1,7 +1,7 @@
 //! RECUPERO I TASTO PLAY DALLE LORO CLASSI
 let play = document.querySelector('a.play');
 let reset = document.querySelector('a.reset');
-
+let perso = false;
 
 let gameOver = false;
 //* COLLEGO IL TAG P DEL PUNTEGGIO
@@ -11,7 +11,7 @@ let scorePoint = 0;
 //! AGGIUNGO AL BOTTONE PLAY RESET
 reset.addEventListener('click', function(){
     wrapperContainer.innerHTML= "";
-    score.innerHTML = "";
+    scorePoint = 0;
 });
 
     //* RECUPERO IL PARENT
@@ -36,7 +36,7 @@ play.addEventListener('click', function(){
 //! BOMBS ###########################
 let bombs = [];
 
-for (let i = 0; i <= 17; i++){
+for (let i = 0; i < 16; i++){
     //* GENERO UN NUMERO RANDOMICO TRA 1 E 100
     let randomBombIndex = randomNumber(1, 100);
 
@@ -73,14 +73,14 @@ function squareCreation (content){
             newSquare.classList.replace('clicked', 'red');
             window.alert(`GAME OVER! \n \n Your score : ${scorePoint} `);
         }
-        if (newSquare.classList.contains('clicked')){
+        if (newSquare.classList.contains('clicked', 'red')){
             scorePoint += 1;
             score.innerHTML =`Punteggio : ${scorePoint}`;
             if (scorePoint === 84){
                 window.alert('HAI VINTO!1!1!1')
             }
         }
-    });
+    } ,{once:true});
     return newSquare;
 } 
 
